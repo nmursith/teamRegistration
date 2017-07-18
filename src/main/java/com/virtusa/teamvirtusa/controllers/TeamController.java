@@ -44,7 +44,7 @@ public class TeamController {
 //            return ResponseEntity.status(HttpStatus.CONFLICT).build();
 //        }
 
-        return ResponseEntity.ok(new OK(aBoolean));
+        return ResponseEntity.ok(new OK(aBoolean+""));
     }
 
     @RequestMapping(method = RequestMethod.GET, value="/getTeamDetails/{name:.+}")

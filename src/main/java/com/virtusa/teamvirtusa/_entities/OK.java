@@ -4,18 +4,17 @@ package com.virtusa.teamvirtusa._entities;
  * Created by delegate on 7/18/17.
  */
 public class OK {
-    private boolean isOK;
+    private String success;
 
-    public boolean isOK() {
-        return isOK;
+    public OK(String success) {
+        this.success = success;
     }
 
-    public void setOK(boolean OK) {
-        isOK = OK;
+    public String getSuccess() {
+        return success;
     }
 
-    public OK(boolean isOK) {
-        this.isOK = isOK;
-
+    public void setSuccess(String success) {
+        this.success = success;
     }
 }
