@@ -36,7 +36,7 @@ public class TeamController {
     }
 
     @RequestMapping(method = RequestMethod.GET, value="/checkDuplicateEmail/{email:.+}")
-    public ResponseEntity<OK> checkDuplicateEmail(@PathVariable String email){
+    public ResponseEntity<String> checkDuplicateEmail(@PathVariable String email){
 
         Boolean aBoolean= teamServices.checkDuplicateEmail(email);
 
@@ -44,7 +44,7 @@ public class TeamController {
 //            return ResponseEntity.status(HttpStatus.CONFLICT).build();
 //        }
 
-        return ResponseEntity.ok(new OK(aBoolean+""));
+        return ResponseEntity.ok(aBoolean+"");
     }
 
     @RequestMapping(method = RequestMethod.GET, value="/getTeamDetails/{name:.+}")
