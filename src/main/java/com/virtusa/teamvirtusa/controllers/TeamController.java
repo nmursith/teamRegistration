@@ -1,5 +1,6 @@
 package com.virtusa.teamvirtusa.controllers;
 
+import com.virtusa.teamvirtusa._entities.OK;
 import com.virtusa.teamvirtusa._entities._Email;
 import com.virtusa.teamvirtusa._entities._TeamRegister;
 import com.virtusa.teamvirtusa.entities.Member;
@@ -8,6 +9,7 @@ import com.virtusa.teamvirtusa.entities.TeamDetails;
 import com.virtusa.teamvirtusa.services.TeamServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -34,7 +36,7 @@ public class TeamController {
     }
 
     @RequestMapping(method = RequestMethod.GET, value="/checkDuplicateEmail/{email:.+}")
-    public ResponseEntity<Boolean> checkDuplicateEmail(@PathVariable String email){
+    public ResponseEntity<OK> checkDuplicateEmail(@PathVariable String email){
 
         Boolean aBoolean= teamServices.checkDuplicateEmail(email);
 
@@ -42,7 +44,7 @@ public class TeamController {
 //            return ResponseEntity.status(HttpStatus.CONFLICT).build();
 //        }
 
-        return ResponseEntity.ok(aBoolean);
+        return ResponseEntity.ok(new OK(aBoolean));
     }
 
     @RequestMapping(method = RequestMethod.GET, value="/getTeamDetails/{name:.+}")
